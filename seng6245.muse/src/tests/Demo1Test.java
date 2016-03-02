@@ -1,8 +1,10 @@
-package sample;
+package tests;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+import sample.Demo1;
 
 public class Demo1Test {
 
