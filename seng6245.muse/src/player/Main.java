@@ -1,6 +1,11 @@
 package player;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.util.ArrayList;
+import abc.AbcMusicLexer;
+import abc.AbcMusicParser;
+
 
 /**
  * Main entry point of your application.
@@ -16,24 +21,54 @@ public class Main {
 	 * 
 	 * @param file the name of input abc file
 	 */
-	public static void play(String file) {
+	public static void play(String abctext) {
 
 	}
 	
 	public static void main(String[] args) {
-		ArrayList<String> abcfiles = new ArrayList<String>();
-		abcfiles.add("sample_abc/fur_elise.abc");
-		abcfiles.add("sample_abc/invention.abc");
-		abcfiles.add("sample_abc/little_night_music.abc");
-		abcfiles.add("sample_abc/paddy.abc");
-		abcfiles.add("sample_abc/piece1.abc");
-		abcfiles.add("sample_abc/piece2.abc");
-		abcfiles.add("sample_abc/prelude.abc");
-		abcfiles.add("sample_abc/scale.abc");
-		abcfiles.add("sample_abc/test.abc");
-		abcfiles.add("sample_abc/SampleChordsandTuplets.abc");
-		abcfiles.add("sample_abc/test2.abc");
-		String abcfile = abcfiles.get(selectedFileIndex);
-		play(abcfile);
+		String abcfile = LoadSampleAbcFiles().get(selectedFileIndex);
+		String abctext = getFileText(abcfile);
+		play(abctext);
 	}	
+	
+	protected static String getFileText(String fileName) {
+		
+		StringBuilder stringBuilder = new StringBuilder();
+
+		try (BufferedReader bufferedReader = new BufferedReader(new FileReader(fileName))) 
+		{
+			String line;
+
+			// Iterate through the text file line-by-line
+			while ((line = bufferedReader.readLine()) != null) 
+			{
+				stringBuilder.append(line);
+				stringBuilder.append(System.getProperty("line.separator"));
+			}
+			bufferedReader.close();
+
+		} 
+		catch (Exception exception) 
+		{
+			exception.printStackTrace();
+		}
+
+		return stringBuilder.toString();
+	}
+	
+	private static ArrayList<String> LoadSampleAbcFiles()
+	{
+		ArrayList<String> sampleAbcs = new ArrayList<String>();
+		sampleAbcs.add("sample_abc/debussy.abc");
+		sampleAbcs.add("sample_abc/fur_elise.abc");
+		sampleAbcs.add("sample_abc/invention.abc");
+		sampleAbcs.add("sample_abc/little_night_music.abc");
+		sampleAbcs.add("sample_abc/paddy.abc");
+		sampleAbcs.add("sample_abc/prelude.abc");
+		sampleAbcs.add("sample_abc/sample1.abc");
+		sampleAbcs.add("sample_abc/sample2.abc");
+		sampleAbcs.add("sample_abc/sample3.abc");
+		sampleAbcs.add("sample_abc/scale.abc");
+		return sampleAbcs;
+	}
 }

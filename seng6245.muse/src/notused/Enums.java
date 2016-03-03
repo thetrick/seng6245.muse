@@ -1,8 +1,5 @@
 package notused;
 
-import notused.Constants.FieldNames;
-import notused.Constants.RegularExpressions;
-
 public final class Enums {
 
     public static enum AbcTypes { 
