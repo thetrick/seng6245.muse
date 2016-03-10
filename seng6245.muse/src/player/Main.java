@@ -3,8 +3,9 @@ package player;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
-import abc.AbcMusicLexer;
-import abc.AbcMusicParser;
+
+import grammar.AbcMusicLexer;
+import grammar.AbcMusicParser;
 
 
 /**
