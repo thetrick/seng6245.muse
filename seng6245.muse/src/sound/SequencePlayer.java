@@ -39,8 +39,8 @@ public class SequencePlayer {
      * @throws MidiUnavailableException
      * @throws InvalidMidiDataException
      */
-    public SequencePlayer(int beatsPerMinute, int ticksPerQuarterNote)
-            throws MidiUnavailableException, InvalidMidiDataException {
+    public SequencePlayer(int beatsPerMinute, int ticksPerQuarterNote) throws MidiUnavailableException, InvalidMidiDataException {
+    	
         this.sequencer = MidiSystem.getSequencer();
 
         // Create a sequence object with with tempo-based timing, where
