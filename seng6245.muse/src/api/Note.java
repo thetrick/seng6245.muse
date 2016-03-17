@@ -109,11 +109,6 @@ public class Note implements IMusicalSymbol {
 	    		this.accidental == that.accidental);
 	}
 	
-	
-	public static void main(String args[]) {
-		Note note = new Note.NoteBuilder('C', 1, Fraction.ONE_HALF, 1).createNote();
-	}
-	
 	public static class NoteBuilder	{
 		private char builderCharacter;
 		private int builderOctave;

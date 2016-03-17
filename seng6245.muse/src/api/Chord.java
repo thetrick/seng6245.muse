@@ -11,6 +11,7 @@ public class Chord implements IMusicalSymbol {
 	private final Fraction chordLength;
 	
 	public Chord(List<IMusicalSymbol> notes) {
+		
 		this.notes = new ArrayList<IMusicalSymbol>(notes);
 		
 		// find the smallest length in list of notes
