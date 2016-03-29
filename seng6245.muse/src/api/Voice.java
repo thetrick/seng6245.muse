@@ -3,9 +3,10 @@ package api;
 import java.util.ArrayList;
 import java.util.List;
 
-import interfaces.IMusicalFragment;
+import interfaces.IAbcMusicFragment;
+import sound.Orchestrator;
 
-public class Voice implements IMusicalFragment{
+public class Voice implements IAbcMusicFragment{
 
     private final String name;
     private final List<MusicBar> musicBars;
@@ -59,6 +60,14 @@ public class Voice implements IMusicalFragment{
     @Override
     public int hashCode() {
         return name.hashCode() + musicBars.hashCode();
-    }	
+    }
+
+
+	@Override
+	public void addToOrchestrator(Orchestrator orchestrator) {
+		for(MusicBar musicBar : this.musicBars) {
+			musicBar.addToOrchestrator(orchestrator);
+		}
+	}	
 
 }

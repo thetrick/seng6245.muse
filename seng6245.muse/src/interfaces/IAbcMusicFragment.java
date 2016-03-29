@@ -1,9 +1,11 @@
 package interfaces;
+import sound.Orchestrator;
 
-public interface IMusicalFragment {
+public interface IAbcMusicFragment {
 
     public int getTicksPerBeat();
-
+    public void addToOrchestrator(Orchestrator orchestrator);
+    
     @Override
     public boolean equals(Object other);
 

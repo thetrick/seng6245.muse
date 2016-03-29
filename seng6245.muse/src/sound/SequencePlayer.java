@@ -20,6 +20,7 @@ public class SequencePlayer {
     private Sequencer sequencer;
     private Track track;
     private int beatsPerMinute;
+    private int ticksPerBeat; // Added
 
     private static int DEFAULT_CHANNEL = 0;    // midi channel - for our purpose always 0
     private static int DEFAULT_VELOCITY = 100; // the volume
@@ -151,6 +152,10 @@ public class SequencePlayer {
         return trackInfo;
     }
 
+	public int getTicksPerBeat() {
+		return ticksPerBeat;
+	}    
+    
     /**
      * play an octave up and back down starting from middle C addNote(base,
      * tick, duration) schedules a note with pitch value 'base' starting at

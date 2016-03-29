@@ -84,7 +84,7 @@ public class Pitch {
      * E'; transposing E down by 1 octave produces E, .
      */
     public Pitch octaveTranspose(int octavesUp) {
-	return new Pitch(value, accidental, octave + octavesUp);
+    	return new Pitch(value, accidental, octave + octavesUp);
     }
 
     /**
@@ -94,36 +94,33 @@ public class Pitch {
      * transposing F up by 5 semitones will produce B flat.
      */
     public Pitch transpose(int semitonesUp) {
-	int newValue = value + semitonesUp;
-	int newOctave = octave;
-	int newAccidental = accidental;
-
-	while (newValue >= OCTAVE) {
-	    newValue -= OCTAVE;
-	    newOctave++;
-	}
-
-	while (newValue < 0) {
-	    newValue += OCTAVE;
-	    newOctave--;
-	}
-
-	if (!isValid(newValue)) {
-	    int interval = semitonesUp % OCTAVE;
-	    if (interval == 3
-		|| interval == 5
-		|| interval == 8
-		|| interval == 10) {
-		newValue++;
-		newAccidental--;
-	    }
-	    else {
-		newValue--;
-		newAccidental++;
-	    }
-	}
-
-	return new Pitch(newValue, newAccidental, newOctave);
+		int newValue = value + semitonesUp;
+		int newOctave = octave;
+		int newAccidental = accidental;
+	
+		while (newValue >= OCTAVE) {
+		    newValue -= OCTAVE;
+		    newOctave++;
+		}
+	
+		while (newValue < 0) {
+		    newValue += OCTAVE;
+		    newOctave--;
+		}
+	
+		if (!isValid(newValue)) {
+		    int interval = semitonesUp % OCTAVE;
+		    if (interval == 3 || interval == 5 || interval == 8	|| interval == 10) {
+		    	newValue++;
+		    	newAccidental--;
+		    }
+		    else {
+		    	newValue--;
+		    	newAccidental++;
+		    }
+		}
+	
+		return new Pitch(newValue, newAccidental, newOctave);
     }
 
     /**
@@ -174,9 +171,9 @@ public class Pitch {
     @Override
     public String toString() {
         String suffix = "";
-	String prefix = "";
-	int oct = octave;
-	int acc = accidental;
+        String prefix = "";
+        int oct = octave;
+        int acc = accidental;
         int v = value;
         
         while (oct < 0) {
@@ -189,18 +186,19 @@ public class Pitch {
             oct--;
         }
 
-	while (acc < 0) {
-	    prefix += "_";
-	    acc++;
-	}
+        while (acc < 0) {
+        	prefix += "_";
+        	acc++;
+        }
         
-	while (acc > 0) {
-	    prefix += "^";
-	    acc--;
-	}
+        while (acc > 0) {
+        	prefix += "^";
+        	acc--;
+        }
 
-	String name = valToString[v];
-	if (oct == 1) name = name.toLowerCase();
+        String name = valToString[v];
+        if (oct == 1) 
+        	name = name.toLowerCase();
 
         return prefix + name + suffix;
     }

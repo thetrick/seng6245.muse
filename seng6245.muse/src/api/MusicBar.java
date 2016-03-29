@@ -3,22 +3,23 @@ package api;
 import java.util.ArrayList;
 import java.util.List;
 
-import interfaces.IMusicalSymbol;
-import interfaces.IMusicalFragment;
+import interfaces.IAbcMusicSymbol;
+import sound.Orchestrator;
+import interfaces.IAbcMusicFragment;
 
 
-public class MusicBar implements IMusicalFragment {
+public class MusicBar implements IAbcMusicFragment {
 
-	private final List<IMusicalSymbol> notes;
+	private final List<IAbcMusicSymbol> notes;
 	
-	public MusicBar(List<IMusicalSymbol> notes) {
-		this.notes = new ArrayList<IMusicalSymbol>(notes);
+	public MusicBar(List<IAbcMusicSymbol> notes) {
+		this.notes = new ArrayList<IAbcMusicSymbol>(notes);
 	}	
 	
 	@Override
 	public int getTicksPerBeat() {
 		int leastCommonMultiple = 1;
-		for(IMusicalSymbol note : notes) {
+		for(IAbcMusicSymbol note : notes) {
 			leastCommonMultiple = NumberUtils.lcm(leastCommonMultiple, note.getTicksPerBeat());
 		}
 		return leastCommonMultiple;
@@ -46,7 +47,7 @@ public class MusicBar implements IMusicalFragment {
 	@Override
 	public String toString() {
 		StringBuilder stringbuilder = new StringBuilder();
-		for(IMusicalSymbol note : notes) {
+		for(IAbcMusicSymbol note : notes) {
 			stringbuilder.append(note.toString());
 			stringbuilder.append(" ");
 		}
@@ -57,6 +58,13 @@ public class MusicBar implements IMusicalFragment {
 	@Override
 	public int hashCode() {
 		return notes.hashCode();
+	}
+
+	@Override
+	public void addToOrchestrator(Orchestrator orchestrator) {
+		for(IAbcMusicSymbol note : this.notes) {
+			note.addToOrchestrator(orchestrator);
+		}
 	}
 	
 }

@@ -3,16 +3,17 @@ package api;
 import org.apache.commons.lang3.math.Fraction;
 import java.util.List;
 import java.util.ArrayList;
-import interfaces.IMusicalSymbol;
+import interfaces.IAbcMusicSymbol;
+import sound.Orchestrator;
 
-public class Chord implements IMusicalSymbol {
+public class Chord implements IAbcMusicSymbol {
 	
-	private final List<IMusicalSymbol> notes;
+	private final List<IAbcMusicSymbol> notes;
 	private final Fraction chordLength;
 	
-	public Chord(List<IMusicalSymbol> notes) {
+	public Chord(List<IAbcMusicSymbol> notes) {
 		
-		this.notes = new ArrayList<IMusicalSymbol>(notes);
+		this.notes = new ArrayList<IAbcMusicSymbol>(notes);
 		
 		// find the smallest length in list of notes
 		if(this.notes.isEmpty()) {
@@ -21,7 +22,7 @@ public class Chord implements IMusicalSymbol {
 		}
 		
 		Fraction smallest = notes.get(0).getNoteLength();
-		for(IMusicalSymbol note : notes) {
+		for(IAbcMusicSymbol note : notes) {
 			if(note.getNoteLength().compareTo(smallest) == -1) {
 				smallest = note.getNoteLength();
 			}
@@ -34,7 +35,7 @@ public class Chord implements IMusicalSymbol {
 	@Override
 	public int getTicksPerBeat() {
 		int leastCommonMultiple = 1;
-		for(IMusicalSymbol note : notes) {
+		for(IAbcMusicSymbol note : notes) {
 			leastCommonMultiple = NumberUtils.lcm(leastCommonMultiple, note.getTicksPerBeat());
 		}
 		return leastCommonMultiple;
@@ -46,9 +47,9 @@ public class Chord implements IMusicalSymbol {
 	}
 
 	@Override
-	public IMusicalSymbol augmentNoteLength(Fraction factor) {
-        List<IMusicalSymbol> newNotes = new ArrayList<IMusicalSymbol>(notes.size());
-        for(IMusicalSymbol note : notes) {
+	public IAbcMusicSymbol augmentNoteLength(Fraction factor) {
+        List<IAbcMusicSymbol> newNotes = new ArrayList<IAbcMusicSymbol>(notes.size());
+        for(IAbcMusicSymbol note : notes) {
             newNotes.add(note.augmentNoteLength(factor));
         }
         return new Chord(newNotes);
@@ -78,7 +79,7 @@ public class Chord implements IMusicalSymbol {
     public String toString() {
         StringBuilder stringbuilder = new StringBuilder();
         stringbuilder.append("[");
-        for(IMusicalSymbol note : notes) {
+        for(IAbcMusicSymbol note : notes) {
         	stringbuilder.append(note);
         	stringbuilder.append(" ");
         }
@@ -90,6 +91,17 @@ public class Chord implements IMusicalSymbol {
 	@Override
 	public int hashCode() {
 		return this.notes.hashCode();
+	}
+
+	@Override
+	public void addToOrchestrator(Orchestrator orchestrator) {
+
+		for(IAbcMusicSymbol note : this.notes) {
+			note.addToOrchestrator(orchestrator);
+			orchestrator.addTime(note.getNoteLength().multiplyBy(Fraction.getFraction(-1, 1)));
+		}
+		
+		orchestrator.addTime(chordLength);
 	}
 
 }

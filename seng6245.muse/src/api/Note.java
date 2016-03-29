@@ -1,10 +1,13 @@
 package api;
 
 import interfaces.*;
+import sound.Orchestrator;
+import sound.Pitch;
+
 import org.apache.commons.lang3.math.Fraction;
 
 
-public class Note implements IMusicalSymbol {
+public class Note implements IAbcMusicSymbol {
 
 	private final char character;
 	private final int octave;
@@ -36,7 +39,7 @@ public class Note implements IMusicalSymbol {
 	}	
 	
 	@Override
-	public IMusicalSymbol augmentNoteLength(Fraction factor) {
+	public IAbcMusicSymbol augmentNoteLength(Fraction factor) {
 		Fraction newNoteLength = this.noteLength.multiplyBy(factor);
 		NoteBuilder newNoteBuilder = new NoteBuilder(this.character, this.octave, newNoteLength, this.accidental);
 		return newNoteBuilder.createNote();
@@ -145,5 +148,12 @@ public class Note implements IMusicalSymbol {
 	      public Note createNote() {
 	         return new Note(this);
 	      }		
+	}
+
+	@Override
+	public void addToOrchestrator(Orchestrator orchestrator) {
+		Pitch pitch = new Pitch(this.character).transpose(this.accidental).octaveTranspose(this.octave);
+		orchestrator.addNote(pitch.toMidiNote(), noteLength);
+		orchestrator.addTime(noteLength);
 	}	
 }

@@ -2,6 +2,7 @@ package player;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import grammar.AbcMusicLexer;
@@ -23,16 +24,16 @@ public class Main {
 	 * @param file the name of input abc file
 	 */
 	public static void play(String abctext) {
-
+		//Player player = new Player();
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		String abcfile = LoadSampleAbcFiles().get(selectedFileIndex);
 		String abctext = getFileText(abcfile);
 		play(abctext);
 	}	
 	
-	protected static String getFileText(String fileName) {
+	protected static String getFileText(String fileName) throws IOException {
 		
 		StringBuilder stringBuilder = new StringBuilder();
 
