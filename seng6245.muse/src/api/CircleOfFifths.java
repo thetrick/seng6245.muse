@@ -4,6 +4,13 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/**
+ * 
+ * @author Todd G. Hetrick
+ * Probably a better way to do this but this class serves an utility to track
+ * the relationship between the 12 tones of the chromatic scale... yeah, that's a mouthful
+ * Mainly, in this project, the class is used to handle accidental adjustments
+ */
 public class CircleOfFifths {
 
 	private final List<Scale> scales;

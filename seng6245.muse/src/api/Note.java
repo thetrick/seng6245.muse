@@ -153,7 +153,7 @@ public class Note implements IAbcMusicSymbol {
 	@Override
 	public void addToOrchestrator(Orchestrator orchestrator) {
 		Pitch pitch = new Pitch(this.character).transpose(this.accidental).octaveTranspose(this.octave);
-		orchestrator.addNote(pitch.toMidiNote(), noteLength);
-		orchestrator.addTime(noteLength);
+		orchestrator.addNote(pitch.toMidiNote(), this.noteLength);
+		orchestrator.addTime(this.noteLength);
 	}	
 }

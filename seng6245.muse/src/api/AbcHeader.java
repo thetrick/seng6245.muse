@@ -3,6 +3,11 @@ package api;
 import java.util.List;
 import org.apache.commons.lang3.math.Fraction;
 
+/**
+ * 
+ * @author Todd G. Hetrick
+ * Represents the Data Model of the Header Portion of the Abc Music file
+ */
 public class AbcHeader {
 	private final int index;
     private final String title;
@@ -57,6 +62,11 @@ public class AbcHeader {
     }
     
     @Override
+    /*
+     * (non-Javadoc)
+     * @see java.lang.Object#toString()
+     * Customized to return the Abc Music Files Header Information as multi-line string
+     */
     public String toString() {
     	
     	StringBuilder stringbuilder = new StringBuilder();
@@ -87,17 +97,23 @@ public class AbcHeader {
         return returnValue;
     }
     
+    /**
+     * Utility function formats a Abc Header Line
+     * @param lbl - represents an Abc Header Label
+     * @param s - represents the Abc Header Value
+     * @return a properly formatted string represented as a line
+     */
     private static String tsfmtr(String lbl, String s) {
     	
     	StringBuilder stringbuilder = new StringBuilder();
     	stringbuilder.append(lbl);
     	stringbuilder.append(": ");
     	
-    	if(!s.toString().isEmpty()) {
+    	if(!s.isEmpty()) {
     		if(s.startsWith("/")){
     			stringbuilder.append("1");
     		}    		
-    		stringbuilder.append("s");	
+    		stringbuilder.append(s);	
     	}
     	else {
     		stringbuilder.append("1");
@@ -107,6 +123,12 @@ public class AbcHeader {
     	return stringbuilder.toString();
     }
     
+    /*
+     * Builder Class for AbcHeader
+     * Utilizes the Joshua's Bloch's Builder pattern
+     * For more details, visit the following article:
+     * http://www.javaworld.com/article/2074938/core-java/too-many-parameters-in-java-methods-part-3-builder-pattern.html
+     */
 	public static class AbcHeaderBuilder	{
 		private int builderIndex;
 	    private String builderTitle;

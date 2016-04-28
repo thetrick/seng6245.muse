@@ -5,8 +5,11 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import api.Composition;
+import api.Mapper;
 import grammar.AbcMusicLexer;
 import grammar.AbcMusicParser;
+import sound.Orchestrator;
 
 
 /**
@@ -23,16 +26,28 @@ public class Main {
 	 * 
 	 * @param file the name of input abc file
 	 */
-	public static void play(String abctext) {
-		//Player player = new Player();
+	public static void play(String abc) {
+		
+		Composition composition = Mapper.abcToComposition(abc);
+		int tempo = composition.getCompositionTempo();
+		int ticksPerBeat = composition.getTicksPerBeat();
+		
+		Orchestrator orchestrator = new Orchestrator(tempo, ticksPerBeat);
+		composition.addToOrchestrator(orchestrator);
+		orchestrator.play();
 	}
 	
 	public static void main(String[] args) throws IOException {
-		String abcfile = LoadSampleAbcFiles().get(selectedFileIndex);
-		String abctext = getFileText(abcfile);
-		play(abctext);
+		String file = LoadSampleAbcFiles().get(selectedFileIndex);
+		String abc = getFileText(file);
+		play(abc);
 	}	
 	
+	/**
+	 * Opens the selected file and reads the text into an String variable
+	 * @param fileName - path location of a sample Abc file
+	 * @return String containing all the text of the selected sample Abc file
+	 */
 	protected static String getFileText(String fileName) throws IOException {
 		
 		StringBuilder stringBuilder = new StringBuilder();
@@ -58,6 +73,10 @@ public class Main {
 		return stringBuilder.toString();
 	}
 	
+	/**
+	 * Loads an ArrayList of Sample Abc Files located on the file system
+	 * @return ArrayList of Sample Abc Files
+	 */
 	private static ArrayList<String> LoadSampleAbcFiles()
 	{
 		ArrayList<String> sampleAbcs = new ArrayList<String>();

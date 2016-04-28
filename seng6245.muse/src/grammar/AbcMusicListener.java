@@ -1,4 +1,4 @@
-// Generated from AbcMusic.g4 by ANTLR 4.5.2
+// Generated from AbcMusic.g4 by ANTLR 4.5.3
 
 package grammar;
 
@@ -10,25 +10,25 @@ import org.antlr.v4.runtime.tree.ParseTreeListener;
  */
 public interface AbcMusicListener extends ParseTreeListener {
 	/**
-	 * Enter a parse tree produced by {@link AbcMusicParser#composition}.
+	 * Enter a parse tree produced by {@link AbcMusicParser#abc_composition}.
 	 * @param ctx the parse tree
 	 */
-	void enterComposition(AbcMusicParser.CompositionContext ctx);
+	void enterAbc_composition(AbcMusicParser.Abc_compositionContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link AbcMusicParser#composition}.
+	 * Exit a parse tree produced by {@link AbcMusicParser#abc_composition}.
 	 * @param ctx the parse tree
 	 */
-	void exitComposition(AbcMusicParser.CompositionContext ctx);
+	void exitAbc_composition(AbcMusicParser.Abc_compositionContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link AbcMusicParser#music_header}.
+	 * Enter a parse tree produced by {@link AbcMusicParser#abc_header}.
 	 * @param ctx the parse tree
 	 */
-	void enterMusic_header(AbcMusicParser.Music_headerContext ctx);
+	void enterAbc_header(AbcMusicParser.Abc_headerContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link AbcMusicParser#music_header}.
+	 * Exit a parse tree produced by {@link AbcMusicParser#abc_header}.
 	 * @param ctx the parse tree
 	 */
-	void exitMusic_header(AbcMusicParser.Music_headerContext ctx);
+	void exitAbc_header(AbcMusicParser.Abc_headerContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link AbcMusicParser#header_index}.
 	 * @param ctx the parse tree
@@ -100,35 +100,35 @@ public interface AbcMusicListener extends ParseTreeListener {
 	 */
 	void exitHeader_tempo(AbcMusicParser.Header_tempoContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link AbcMusicParser#header_voice}.
+	 * Enter a parse tree produced by {@link AbcMusicParser#field_voice}.
 	 * @param ctx the parse tree
 	 */
-	void enterHeader_voice(AbcMusicParser.Header_voiceContext ctx);
+	void enterField_voice(AbcMusicParser.Field_voiceContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link AbcMusicParser#header_voice}.
+	 * Exit a parse tree produced by {@link AbcMusicParser#field_voice}.
 	 * @param ctx the parse tree
 	 */
-	void exitHeader_voice(AbcMusicParser.Header_voiceContext ctx);
+	void exitField_voice(AbcMusicParser.Field_voiceContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link AbcMusicParser#header_key}.
+	 * Enter a parse tree produced by {@link AbcMusicParser#field_key}.
 	 * @param ctx the parse tree
 	 */
-	void enterHeader_key(AbcMusicParser.Header_keyContext ctx);
+	void enterField_key(AbcMusicParser.Field_keyContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link AbcMusicParser#header_key}.
+	 * Exit a parse tree produced by {@link AbcMusicParser#field_key}.
 	 * @param ctx the parse tree
 	 */
-	void exitHeader_key(AbcMusicParser.Header_keyContext ctx);
+	void exitField_key(AbcMusicParser.Field_keyContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link AbcMusicParser#music_body}.
+	 * Enter a parse tree produced by {@link AbcMusicParser#abc_music}.
 	 * @param ctx the parse tree
 	 */
-	void enterMusic_body(AbcMusicParser.Music_bodyContext ctx);
+	void enterAbc_music(AbcMusicParser.Abc_musicContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link AbcMusicParser#music_body}.
+	 * Exit a parse tree produced by {@link AbcMusicParser#abc_music}.
 	 * @param ctx the parse tree
 	 */
-	void exitMusic_body(AbcMusicParser.Music_bodyContext ctx);
+	void exitAbc_music(AbcMusicParser.Abc_musicContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link AbcMusicParser#line}.
 	 * @param ctx the parse tree
@@ -140,25 +140,25 @@ public interface AbcMusicListener extends ParseTreeListener {
 	 */
 	void exitLine(AbcMusicParser.LineContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link AbcMusicParser#bar}.
+	 * Enter a parse tree produced by {@link AbcMusicParser#measure}.
 	 * @param ctx the parse tree
 	 */
-	void enterBar(AbcMusicParser.BarContext ctx);
+	void enterMeasure(AbcMusicParser.MeasureContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link AbcMusicParser#bar}.
+	 * Exit a parse tree produced by {@link AbcMusicParser#measure}.
 	 * @param ctx the parse tree
 	 */
-	void exitBar(AbcMusicParser.BarContext ctx);
+	void exitMeasure(AbcMusicParser.MeasureContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link AbcMusicParser#note_type}.
+	 * Enter a parse tree produced by {@link AbcMusicParser#note_element}.
 	 * @param ctx the parse tree
 	 */
-	void enterNote_type(AbcMusicParser.Note_typeContext ctx);
+	void enterNote_element(AbcMusicParser.Note_elementContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link AbcMusicParser#note_type}.
+	 * Exit a parse tree produced by {@link AbcMusicParser#note_element}.
 	 * @param ctx the parse tree
 	 */
-	void exitNote_type(AbcMusicParser.Note_typeContext ctx);
+	void exitNote_element(AbcMusicParser.Note_elementContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link AbcMusicParser#note}.
 	 * @param ctx the parse tree

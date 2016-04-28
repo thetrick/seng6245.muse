@@ -4,15 +4,31 @@ import javax.sound.midi.InvalidMidiDataException;
 import javax.sound.midi.MidiUnavailableException;
 import org.apache.commons.lang3.math.Fraction;
 
-import api.Chord;
 
+/**
+ * 
+ * @author Todd G. Hetrick
+ * Wraps the activities of the Sequence Player and orchestrates the activities
+ * by adding notes in the proper sequence.  Leverages an internal tickPosition
+ * to make sure that the notes added are done in the proper sequence.
+ *  
+ */
 public class Orchestrator {
 	
 	private SequencePlayer sequencePlayer;
 	private int tickPosition;
 	private final int ticksPerBeat;
 	
-	public Orchestrator(int tempo, int ticksPerBeat, int tickPosition) {
+	/**
+	 * Instantiates a new instance of the Orchestrator Class
+	 * @param tempo - represents beats per minute for a given song
+	 * @param ticksPerBeat - represents the number of ticks per beat
+	 */
+	public Orchestrator(int tempo, int ticksPerBeat) {
+		
+		this.tickPosition = 0; // Start at the beginning
+		this.ticksPerBeat = ticksPerBeat;
+		
 		try {
 			this.sequencePlayer = new SequencePlayer(tempo, ticksPerBeat);
 		} catch (MidiUnavailableException midiUnavailableException) {
@@ -20,10 +36,12 @@ public class Orchestrator {
 		} catch (InvalidMidiDataException invalidMidiDataException) {
 			invalidMidiDataException.printStackTrace();
 		}
-		this.tickPosition = tickPosition;
-		this.ticksPerBeat = ticksPerBeat;
 	}
 
+	/**
+	 * Initiates the underlying sequence player's play method
+	 * which executes the song's sounds
+	 */
 	public void play() {
 		try {
 			sequencePlayer.play();
@@ -33,6 +51,11 @@ public class Orchestrator {
 	}	
 	
 	@Override
+	/**
+	 * Compares one Orchestrator object with another Orchestrator object
+	 * Specifically, if the underlying SequencePlayers and the tickPosition
+	 * are equal, then this function returns true.
+	 */
 	public boolean equals(Object other) {
 	    //check for self-comparison
 	    if ( this == other ) 
@@ -52,27 +75,38 @@ public class Orchestrator {
 	    return (this.sequencePlayer.equals(that.sequencePlayer) && this.tickPosition == that.tickPosition);
 	}		
 	
+	/**
+	 * Returns the ticksPerBeat integer value as a Fraction
+	 * (used primarily in the addTime function)
+	 * @return ticksPerBeat as a Fraction
+	 */
 	public Fraction getTicksPerBeatAsFraction() {
 		Fraction ticksPerBeatAsFraction = Fraction.getFraction(this.ticksPerBeat, 1);
 		return ticksPerBeatAsFraction;
 	}
-	
-	public Orchestrator(SequencePlayer sequencePlayer, int tickPosition) {
-		this.sequencePlayer = sequencePlayer;
-		this.tickPosition = tickPosition;
-		this.ticksPerBeat = sequencePlayer.getTicksPerBeat();
-	}
-	
+		
+	/**
+	 * Adds a MIDI note with length information to the Sequence Player
+	 * @param note - the note represented as a MIDI note
+	 * @param noteLength - note's length represented as a Fraction
+	 */
 	public void addNote(int note, Fraction noteLength) {
 		Fraction tickPerBeatAsFraction = Fraction.getFraction(this.ticksPerBeat, 1);
 		sequencePlayer.addNote(note, this.tickPosition, noteLength.multiplyBy(tickPerBeatAsFraction).getNumerator());
 	}
 	
+	/**
+	 * Increments tick position with the note's time length 
+	 * @param timeLength - note's time length represented as a Fraction
+	 */
 	public void addTime(Fraction timeLength){
 		Fraction augment = timeLength.multiplyBy(this.getTicksPerBeatAsFraction());
 		this.tickPosition += augment.getNumerator();
 	}
 	
+	/**
+	 * reset tick position to 0
+	 */
 	public void initializeTime() {
 		this.tickPosition = 0;
 	}

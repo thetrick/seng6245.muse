@@ -1,4 +1,4 @@
-// Generated from AbcMusic.g4 by ANTLR 4.5.2
+// Generated from AbcMusic.g4 by ANTLR 4.5.3
 
 package grammar;
 
@@ -13,28 +13,27 @@ import java.util.ArrayList;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
 public class AbcMusicParser extends Parser {
-	static { RuntimeMetaData.checkVersion("4.5.2", RuntimeMetaData.VERSION); }
+	static { RuntimeMetaData.checkVersion("4.5.3", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		WHITESPACE=1, NEWLINE=2, COMMENT=3, HEADER_INDEX=4, HEADER_TITLE=5, HEADER_COMPOSER=6, 
-		HEADER_LENGTH=7, HEADER_METER=8, HEADER_TEMPO=9, HEADER_VOICE=10, HEADER_KEY=11, 
-		NOTE=12, REST=13, DUPLET=14, TRIPLET=15, QUADRUPLET=16, BAR_LINE=17, CHORD_OPEN=18, 
-		CHORD_CLOSE=19, REPEAT_BEGIN=20, REPEAT_END=21, REPEAT_ONE=22, REPEAT_TWO=23, 
-		END_MAJOR_SECTION=24;
+		WHITESPACE=1, NEWLINE=2, INDEX=3, TITLE=4, COMPOSER=5, LENGTH=6, METER=7, 
+		TEMPO=8, VOICE=9, KEY=10, COMMENT=11, NOTE=12, REST=13, DUPLET=14, TRIPLET=15, 
+		QUAD=16, PIPE=17, LBRAC=18, RBRAC=19, LREPEAT=20, RREPEAT=21, ONE_REPEAT=22, 
+		TWO_REPEAT=23, END_NOTES=24;
 	public static final int
-		RULE_composition = 0, RULE_music_header = 1, RULE_header_index = 2, RULE_header_title = 3, 
-		RULE_optional_headers = 4, RULE_header_composer = 5, RULE_header_length = 6, 
-		RULE_header_meter = 7, RULE_header_tempo = 8, RULE_header_voice = 9, RULE_header_key = 10, 
-		RULE_music_body = 11, RULE_line = 12, RULE_bar = 13, RULE_note_type = 14, 
-		RULE_note = 15, RULE_rest = 16, RULE_chord = 17, RULE_duplet = 18, RULE_triplet = 19, 
-		RULE_quadruplet = 20;
+		RULE_abc_composition = 0, RULE_abc_header = 1, RULE_header_index = 2, 
+		RULE_header_title = 3, RULE_optional_headers = 4, RULE_header_composer = 5, 
+		RULE_header_length = 6, RULE_header_meter = 7, RULE_header_tempo = 8, 
+		RULE_field_voice = 9, RULE_field_key = 10, RULE_abc_music = 11, RULE_line = 12, 
+		RULE_measure = 13, RULE_note_element = 14, RULE_note = 15, RULE_rest = 16, 
+		RULE_chord = 17, RULE_duplet = 18, RULE_triplet = 19, RULE_quadruplet = 20;
 	public static final String[] ruleNames = {
-		"composition", "music_header", "header_index", "header_title", "optional_headers", 
-		"header_composer", "header_length", "header_meter", "header_tempo", "header_voice", 
-		"header_key", "music_body", "line", "bar", "note_type", "note", "rest", 
+		"abc_composition", "abc_header", "header_index", "header_title", "optional_headers", 
+		"header_composer", "header_length", "header_meter", "header_tempo", "field_voice", 
+		"field_key", "abc_music", "line", "measure", "note_element", "note", "rest", 
 		"chord", "duplet", "triplet", "quadruplet"
 	};
 
@@ -44,11 +43,10 @@ public class AbcMusicParser extends Parser {
 		"'[2'"
 	};
 	private static final String[] _SYMBOLIC_NAMES = {
-		null, "WHITESPACE", "NEWLINE", "COMMENT", "HEADER_INDEX", "HEADER_TITLE", 
-		"HEADER_COMPOSER", "HEADER_LENGTH", "HEADER_METER", "HEADER_TEMPO", "HEADER_VOICE", 
-		"HEADER_KEY", "NOTE", "REST", "DUPLET", "TRIPLET", "QUADRUPLET", "BAR_LINE", 
-		"CHORD_OPEN", "CHORD_CLOSE", "REPEAT_BEGIN", "REPEAT_END", "REPEAT_ONE", 
-		"REPEAT_TWO", "END_MAJOR_SECTION"
+		null, "WHITESPACE", "NEWLINE", "INDEX", "TITLE", "COMPOSER", "LENGTH", 
+		"METER", "TEMPO", "VOICE", "KEY", "COMMENT", "NOTE", "REST", "DUPLET", 
+		"TRIPLET", "QUAD", "PIPE", "LBRAC", "RBRAC", "LREPEAT", "RREPEAT", "ONE_REPEAT", 
+		"TWO_REPEAT", "END_NOTES"
 	};
 	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
 
@@ -99,43 +97,43 @@ public class AbcMusicParser extends Parser {
 		super(input);
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
-	public static class CompositionContext extends ParserRuleContext {
-		public Music_headerContext music_header() {
-			return getRuleContext(Music_headerContext.class,0);
+	public static class Abc_compositionContext extends ParserRuleContext {
+		public Abc_headerContext abc_header() {
+			return getRuleContext(Abc_headerContext.class,0);
 		}
-		public Music_bodyContext music_body() {
-			return getRuleContext(Music_bodyContext.class,0);
+		public Abc_musicContext abc_music() {
+			return getRuleContext(Abc_musicContext.class,0);
 		}
 		public TerminalNode EOF() { return getToken(AbcMusicParser.EOF, 0); }
 		public List<TerminalNode> NEWLINE() { return getTokens(AbcMusicParser.NEWLINE); }
 		public TerminalNode NEWLINE(int i) {
 			return getToken(AbcMusicParser.NEWLINE, i);
 		}
-		public CompositionContext(ParserRuleContext parent, int invokingState) {
+		public Abc_compositionContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
-		@Override public int getRuleIndex() { return RULE_composition; }
+		@Override public int getRuleIndex() { return RULE_abc_composition; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof AbcMusicListener ) ((AbcMusicListener)listener).enterComposition(this);
+			if ( listener instanceof AbcMusicListener ) ((AbcMusicListener)listener).enterAbc_composition(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof AbcMusicListener ) ((AbcMusicListener)listener).exitComposition(this);
+			if ( listener instanceof AbcMusicListener ) ((AbcMusicListener)listener).exitAbc_composition(this);
 		}
 	}
 
-	public final CompositionContext composition() throws RecognitionException {
-		CompositionContext _localctx = new CompositionContext(_ctx, getState());
-		enterRule(_localctx, 0, RULE_composition);
+	public final Abc_compositionContext abc_composition() throws RecognitionException {
+		Abc_compositionContext _localctx = new Abc_compositionContext(_ctx, getState());
+		enterRule(_localctx, 0, RULE_abc_composition);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(42);
-			music_header();
+			abc_header();
 			setState(43);
-			music_body();
+			abc_music();
 			setState(47);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
@@ -165,15 +163,15 @@ public class AbcMusicParser extends Parser {
 		return _localctx;
 	}
 
-	public static class Music_headerContext extends ParserRuleContext {
+	public static class Abc_headerContext extends ParserRuleContext {
 		public Header_indexContext header_index() {
 			return getRuleContext(Header_indexContext.class,0);
 		}
 		public Header_titleContext header_title() {
 			return getRuleContext(Header_titleContext.class,0);
 		}
-		public Header_keyContext header_key() {
-			return getRuleContext(Header_keyContext.class,0);
+		public Field_keyContext field_key() {
+			return getRuleContext(Field_keyContext.class,0);
 		}
 		public List<Optional_headersContext> optional_headers() {
 			return getRuleContexts(Optional_headersContext.class);
@@ -181,23 +179,23 @@ public class AbcMusicParser extends Parser {
 		public Optional_headersContext optional_headers(int i) {
 			return getRuleContext(Optional_headersContext.class,i);
 		}
-		public Music_headerContext(ParserRuleContext parent, int invokingState) {
+		public Abc_headerContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
-		@Override public int getRuleIndex() { return RULE_music_header; }
+		@Override public int getRuleIndex() { return RULE_abc_header; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof AbcMusicListener ) ((AbcMusicListener)listener).enterMusic_header(this);
+			if ( listener instanceof AbcMusicListener ) ((AbcMusicListener)listener).enterAbc_header(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof AbcMusicListener ) ((AbcMusicListener)listener).exitMusic_header(this);
+			if ( listener instanceof AbcMusicListener ) ((AbcMusicListener)listener).exitAbc_header(this);
 		}
 	}
 
-	public final Music_headerContext music_header() throws RecognitionException {
-		Music_headerContext _localctx = new Music_headerContext(_ctx, getState());
-		enterRule(_localctx, 2, RULE_music_header);
+	public final Abc_headerContext abc_header() throws RecognitionException {
+		Abc_headerContext _localctx = new Abc_headerContext(_ctx, getState());
+		enterRule(_localctx, 2, RULE_abc_header);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
@@ -209,7 +207,7 @@ public class AbcMusicParser extends Parser {
 			setState(57);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << COMMENT) | (1L << HEADER_COMPOSER) | (1L << HEADER_LENGTH) | (1L << HEADER_METER) | (1L << HEADER_TEMPO) | (1L << HEADER_VOICE))) != 0)) {
+			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << COMPOSER) | (1L << LENGTH) | (1L << METER) | (1L << TEMPO) | (1L << VOICE) | (1L << COMMENT))) != 0)) {
 				{
 				{
 				setState(54);
@@ -221,7 +219,7 @@ public class AbcMusicParser extends Parser {
 				_la = _input.LA(1);
 			}
 			setState(60);
-			header_key();
+			field_key();
 			}
 		}
 		catch (RecognitionException re) {
@@ -236,7 +234,7 @@ public class AbcMusicParser extends Parser {
 	}
 
 	public static class Header_indexContext extends ParserRuleContext {
-		public TerminalNode HEADER_INDEX() { return getToken(AbcMusicParser.HEADER_INDEX, 0); }
+		public TerminalNode INDEX() { return getToken(AbcMusicParser.INDEX, 0); }
 		public Header_indexContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -258,7 +256,7 @@ public class AbcMusicParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(62);
-			match(HEADER_INDEX);
+			match(INDEX);
 			}
 		}
 		catch (RecognitionException re) {
@@ -273,7 +271,7 @@ public class AbcMusicParser extends Parser {
 	}
 
 	public static class Header_titleContext extends ParserRuleContext {
-		public TerminalNode HEADER_TITLE() { return getToken(AbcMusicParser.HEADER_TITLE, 0); }
+		public TerminalNode TITLE() { return getToken(AbcMusicParser.TITLE, 0); }
 		public Header_titleContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -295,7 +293,7 @@ public class AbcMusicParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(64);
-			match(HEADER_TITLE);
+			match(TITLE);
 			}
 		}
 		catch (RecognitionException re) {
@@ -322,8 +320,8 @@ public class AbcMusicParser extends Parser {
 		public Header_tempoContext header_tempo() {
 			return getRuleContext(Header_tempoContext.class,0);
 		}
-		public Header_voiceContext header_voice() {
-			return getRuleContext(Header_voiceContext.class,0);
+		public Field_voiceContext field_voice() {
+			return getRuleContext(Field_voiceContext.class,0);
 		}
 		public TerminalNode COMMENT() { return getToken(AbcMusicParser.COMMENT, 0); }
 		public Optional_headersContext(ParserRuleContext parent, int invokingState) {
@@ -346,39 +344,39 @@ public class AbcMusicParser extends Parser {
 		try {
 			setState(72);
 			switch (_input.LA(1)) {
-			case HEADER_COMPOSER:
+			case COMPOSER:
 				enterOuterAlt(_localctx, 1);
 				{
 				setState(66);
 				header_composer();
 				}
 				break;
-			case HEADER_LENGTH:
+			case LENGTH:
 				enterOuterAlt(_localctx, 2);
 				{
 				setState(67);
 				header_length();
 				}
 				break;
-			case HEADER_METER:
+			case METER:
 				enterOuterAlt(_localctx, 3);
 				{
 				setState(68);
 				header_meter();
 				}
 				break;
-			case HEADER_TEMPO:
+			case TEMPO:
 				enterOuterAlt(_localctx, 4);
 				{
 				setState(69);
 				header_tempo();
 				}
 				break;
-			case HEADER_VOICE:
+			case VOICE:
 				enterOuterAlt(_localctx, 5);
 				{
 				setState(70);
-				header_voice();
+				field_voice();
 				}
 				break;
 			case COMMENT:
@@ -404,7 +402,7 @@ public class AbcMusicParser extends Parser {
 	}
 
 	public static class Header_composerContext extends ParserRuleContext {
-		public TerminalNode HEADER_COMPOSER() { return getToken(AbcMusicParser.HEADER_COMPOSER, 0); }
+		public TerminalNode COMPOSER() { return getToken(AbcMusicParser.COMPOSER, 0); }
 		public Header_composerContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -426,7 +424,7 @@ public class AbcMusicParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(74);
-			match(HEADER_COMPOSER);
+			match(COMPOSER);
 			}
 		}
 		catch (RecognitionException re) {
@@ -441,7 +439,7 @@ public class AbcMusicParser extends Parser {
 	}
 
 	public static class Header_lengthContext extends ParserRuleContext {
-		public TerminalNode HEADER_LENGTH() { return getToken(AbcMusicParser.HEADER_LENGTH, 0); }
+		public TerminalNode LENGTH() { return getToken(AbcMusicParser.LENGTH, 0); }
 		public Header_lengthContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -463,7 +461,7 @@ public class AbcMusicParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(76);
-			match(HEADER_LENGTH);
+			match(LENGTH);
 			}
 		}
 		catch (RecognitionException re) {
@@ -478,7 +476,7 @@ public class AbcMusicParser extends Parser {
 	}
 
 	public static class Header_meterContext extends ParserRuleContext {
-		public TerminalNode HEADER_METER() { return getToken(AbcMusicParser.HEADER_METER, 0); }
+		public TerminalNode METER() { return getToken(AbcMusicParser.METER, 0); }
 		public Header_meterContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -500,7 +498,7 @@ public class AbcMusicParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(78);
-			match(HEADER_METER);
+			match(METER);
 			}
 		}
 		catch (RecognitionException re) {
@@ -515,7 +513,7 @@ public class AbcMusicParser extends Parser {
 	}
 
 	public static class Header_tempoContext extends ParserRuleContext {
-		public TerminalNode HEADER_TEMPO() { return getToken(AbcMusicParser.HEADER_TEMPO, 0); }
+		public TerminalNode TEMPO() { return getToken(AbcMusicParser.TEMPO, 0); }
 		public Header_tempoContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -537,7 +535,7 @@ public class AbcMusicParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(80);
-			match(HEADER_TEMPO);
+			match(TEMPO);
 			}
 		}
 		catch (RecognitionException re) {
@@ -551,30 +549,30 @@ public class AbcMusicParser extends Parser {
 		return _localctx;
 	}
 
-	public static class Header_voiceContext extends ParserRuleContext {
-		public TerminalNode HEADER_VOICE() { return getToken(AbcMusicParser.HEADER_VOICE, 0); }
-		public Header_voiceContext(ParserRuleContext parent, int invokingState) {
+	public static class Field_voiceContext extends ParserRuleContext {
+		public TerminalNode VOICE() { return getToken(AbcMusicParser.VOICE, 0); }
+		public Field_voiceContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
-		@Override public int getRuleIndex() { return RULE_header_voice; }
+		@Override public int getRuleIndex() { return RULE_field_voice; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof AbcMusicListener ) ((AbcMusicListener)listener).enterHeader_voice(this);
+			if ( listener instanceof AbcMusicListener ) ((AbcMusicListener)listener).enterField_voice(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof AbcMusicListener ) ((AbcMusicListener)listener).exitHeader_voice(this);
+			if ( listener instanceof AbcMusicListener ) ((AbcMusicListener)listener).exitField_voice(this);
 		}
 	}
 
-	public final Header_voiceContext header_voice() throws RecognitionException {
-		Header_voiceContext _localctx = new Header_voiceContext(_ctx, getState());
-		enterRule(_localctx, 18, RULE_header_voice);
+	public final Field_voiceContext field_voice() throws RecognitionException {
+		Field_voiceContext _localctx = new Field_voiceContext(_ctx, getState());
+		enterRule(_localctx, 18, RULE_field_voice);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(82);
-			match(HEADER_VOICE);
+			match(VOICE);
 			}
 		}
 		catch (RecognitionException re) {
@@ -588,30 +586,30 @@ public class AbcMusicParser extends Parser {
 		return _localctx;
 	}
 
-	public static class Header_keyContext extends ParserRuleContext {
-		public TerminalNode HEADER_KEY() { return getToken(AbcMusicParser.HEADER_KEY, 0); }
-		public Header_keyContext(ParserRuleContext parent, int invokingState) {
+	public static class Field_keyContext extends ParserRuleContext {
+		public TerminalNode KEY() { return getToken(AbcMusicParser.KEY, 0); }
+		public Field_keyContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
-		@Override public int getRuleIndex() { return RULE_header_key; }
+		@Override public int getRuleIndex() { return RULE_field_key; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof AbcMusicListener ) ((AbcMusicListener)listener).enterHeader_key(this);
+			if ( listener instanceof AbcMusicListener ) ((AbcMusicListener)listener).enterField_key(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof AbcMusicListener ) ((AbcMusicListener)listener).exitHeader_key(this);
+			if ( listener instanceof AbcMusicListener ) ((AbcMusicListener)listener).exitField_key(this);
 		}
 	}
 
-	public final Header_keyContext header_key() throws RecognitionException {
-		Header_keyContext _localctx = new Header_keyContext(_ctx, getState());
-		enterRule(_localctx, 20, RULE_header_key);
+	public final Field_keyContext field_key() throws RecognitionException {
+		Field_keyContext _localctx = new Field_keyContext(_ctx, getState());
+		enterRule(_localctx, 20, RULE_field_key);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(84);
-			match(HEADER_KEY);
+			match(KEY);
 			}
 		}
 		catch (RecognitionException re) {
@@ -625,18 +623,18 @@ public class AbcMusicParser extends Parser {
 		return _localctx;
 	}
 
-	public static class Music_bodyContext extends ParserRuleContext {
+	public static class Abc_musicContext extends ParserRuleContext {
 		public List<LineContext> line() {
 			return getRuleContexts(LineContext.class);
 		}
 		public LineContext line(int i) {
 			return getRuleContext(LineContext.class,i);
 		}
-		public List<Header_voiceContext> header_voice() {
-			return getRuleContexts(Header_voiceContext.class);
+		public List<Field_voiceContext> field_voice() {
+			return getRuleContexts(Field_voiceContext.class);
 		}
-		public Header_voiceContext header_voice(int i) {
-			return getRuleContext(Header_voiceContext.class,i);
+		public Field_voiceContext field_voice(int i) {
+			return getRuleContext(Field_voiceContext.class,i);
 		}
 		public List<TerminalNode> COMMENT() { return getTokens(AbcMusicParser.COMMENT); }
 		public TerminalNode COMMENT(int i) {
@@ -646,23 +644,23 @@ public class AbcMusicParser extends Parser {
 		public TerminalNode NEWLINE(int i) {
 			return getToken(AbcMusicParser.NEWLINE, i);
 		}
-		public Music_bodyContext(ParserRuleContext parent, int invokingState) {
+		public Abc_musicContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
-		@Override public int getRuleIndex() { return RULE_music_body; }
+		@Override public int getRuleIndex() { return RULE_abc_music; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof AbcMusicListener ) ((AbcMusicListener)listener).enterMusic_body(this);
+			if ( listener instanceof AbcMusicListener ) ((AbcMusicListener)listener).enterAbc_music(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof AbcMusicListener ) ((AbcMusicListener)listener).exitMusic_body(this);
+			if ( listener instanceof AbcMusicListener ) ((AbcMusicListener)listener).exitAbc_music(this);
 		}
 	}
 
-	public final Music_bodyContext music_body() throws RecognitionException {
-		Music_bodyContext _localctx = new Music_bodyContext(_ctx, getState());
-		enterRule(_localctx, 22, RULE_music_body);
+	public final Abc_musicContext abc_music() throws RecognitionException {
+		Abc_musicContext _localctx = new Abc_musicContext(_ctx, getState());
+		enterRule(_localctx, 22, RULE_abc_music);
 		try {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
@@ -681,21 +679,21 @@ public class AbcMusicParser extends Parser {
 					case REST:
 					case DUPLET:
 					case TRIPLET:
-					case QUADRUPLET:
-					case BAR_LINE:
-					case CHORD_OPEN:
-					case REPEAT_BEGIN:
-					case REPEAT_ONE:
-					case REPEAT_TWO:
+					case QUAD:
+					case PIPE:
+					case LBRAC:
+					case LREPEAT:
+					case ONE_REPEAT:
+					case TWO_REPEAT:
 						{
 						setState(86);
 						line();
 						}
 						break;
-					case HEADER_VOICE:
+					case VOICE:
 						{
 						setState(87);
-						header_voice();
+						field_voice();
 						setState(91);
 						_errHandler.sync(this);
 						_alt = getInterpreter().adaptivePredict(_input,3,_ctx);
@@ -750,11 +748,11 @@ public class AbcMusicParser extends Parser {
 		public TerminalNode NEWLINE(int i) {
 			return getToken(AbcMusicParser.NEWLINE, i);
 		}
-		public List<BarContext> bar() {
-			return getRuleContexts(BarContext.class);
+		public List<MeasureContext> measure() {
+			return getRuleContexts(MeasureContext.class);
 		}
-		public BarContext bar(int i) {
-			return getRuleContext(BarContext.class,i);
+		public MeasureContext measure(int i) {
+			return getRuleContext(MeasureContext.class,i);
 		}
 		public LineContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -801,7 +799,7 @@ public class AbcMusicParser extends Parser {
 					{
 					{
 					setState(105);
-					bar();
+					measure();
 					}
 					}
 					break;
@@ -841,40 +839,40 @@ public class AbcMusicParser extends Parser {
 		return _localctx;
 	}
 
-	public static class BarContext extends ParserRuleContext {
-		public List<Note_typeContext> note_type() {
-			return getRuleContexts(Note_typeContext.class);
+	public static class MeasureContext extends ParserRuleContext {
+		public List<Note_elementContext> note_element() {
+			return getRuleContexts(Note_elementContext.class);
 		}
-		public Note_typeContext note_type(int i) {
-			return getRuleContext(Note_typeContext.class,i);
+		public Note_elementContext note_element(int i) {
+			return getRuleContext(Note_elementContext.class,i);
 		}
-		public TerminalNode REPEAT_BEGIN() { return getToken(AbcMusicParser.REPEAT_BEGIN, 0); }
-		public TerminalNode REPEAT_ONE() { return getToken(AbcMusicParser.REPEAT_ONE, 0); }
-		public TerminalNode REPEAT_TWO() { return getToken(AbcMusicParser.REPEAT_TWO, 0); }
-		public List<TerminalNode> BAR_LINE() { return getTokens(AbcMusicParser.BAR_LINE); }
-		public TerminalNode BAR_LINE(int i) {
-			return getToken(AbcMusicParser.BAR_LINE, i);
+		public TerminalNode LREPEAT() { return getToken(AbcMusicParser.LREPEAT, 0); }
+		public TerminalNode ONE_REPEAT() { return getToken(AbcMusicParser.ONE_REPEAT, 0); }
+		public TerminalNode TWO_REPEAT() { return getToken(AbcMusicParser.TWO_REPEAT, 0); }
+		public List<TerminalNode> PIPE() { return getTokens(AbcMusicParser.PIPE); }
+		public TerminalNode PIPE(int i) {
+			return getToken(AbcMusicParser.PIPE, i);
 		}
-		public TerminalNode END_MAJOR_SECTION() { return getToken(AbcMusicParser.END_MAJOR_SECTION, 0); }
+		public TerminalNode END_NOTES() { return getToken(AbcMusicParser.END_NOTES, 0); }
 		public TerminalNode NEWLINE() { return getToken(AbcMusicParser.NEWLINE, 0); }
-		public TerminalNode REPEAT_END() { return getToken(AbcMusicParser.REPEAT_END, 0); }
-		public BarContext(ParserRuleContext parent, int invokingState) {
+		public TerminalNode RREPEAT() { return getToken(AbcMusicParser.RREPEAT, 0); }
+		public MeasureContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
-		@Override public int getRuleIndex() { return RULE_bar; }
+		@Override public int getRuleIndex() { return RULE_measure; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof AbcMusicListener ) ((AbcMusicListener)listener).enterBar(this);
+			if ( listener instanceof AbcMusicListener ) ((AbcMusicListener)listener).enterMeasure(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof AbcMusicListener ) ((AbcMusicListener)listener).exitBar(this);
+			if ( listener instanceof AbcMusicListener ) ((AbcMusicListener)listener).exitMeasure(this);
 		}
 	}
 
-	public final BarContext bar() throws RecognitionException {
-		BarContext _localctx = new BarContext(_ctx, getState());
-		enterRule(_localctx, 26, RULE_bar);
+	public final MeasureContext measure() throws RecognitionException {
+		MeasureContext _localctx = new MeasureContext(_ctx, getState());
+		enterRule(_localctx, 26, RULE_measure);
 		int _la;
 		try {
 			int _alt;
@@ -882,11 +880,11 @@ public class AbcMusicParser extends Parser {
 			{
 			setState(117);
 			_la = _input.LA(1);
-			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << BAR_LINE) | (1L << REPEAT_BEGIN) | (1L << REPEAT_ONE) | (1L << REPEAT_TWO))) != 0)) {
+			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << PIPE) | (1L << LREPEAT) | (1L << ONE_REPEAT) | (1L << TWO_REPEAT))) != 0)) {
 				{
 				setState(116);
 				_la = _input.LA(1);
-				if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << BAR_LINE) | (1L << REPEAT_BEGIN) | (1L << REPEAT_ONE) | (1L << REPEAT_TWO))) != 0)) ) {
+				if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << PIPE) | (1L << LREPEAT) | (1L << ONE_REPEAT) | (1L << TWO_REPEAT))) != 0)) ) {
 				_errHandler.recoverInline(this);
 				} else {
 					consume();
@@ -903,7 +901,7 @@ public class AbcMusicParser extends Parser {
 					{
 					{
 					setState(119);
-					note_type();
+					note_element();
 					}
 					}
 					break;
@@ -921,7 +919,7 @@ public class AbcMusicParser extends Parser {
 				{
 				setState(124);
 				_la = _input.LA(1);
-				if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << NEWLINE) | (1L << BAR_LINE) | (1L << REPEAT_END) | (1L << END_MAJOR_SECTION))) != 0)) ) {
+				if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << NEWLINE) | (1L << PIPE) | (1L << RREPEAT) | (1L << END_NOTES))) != 0)) ) {
 				_errHandler.recoverInline(this);
 				} else {
 					consume();
@@ -942,7 +940,7 @@ public class AbcMusicParser extends Parser {
 		return _localctx;
 	}
 
-	public static class Note_typeContext extends ParserRuleContext {
+	public static class Note_elementContext extends ParserRuleContext {
 		public NoteContext note() {
 			return getRuleContext(NoteContext.class,0);
 		}
@@ -961,23 +959,23 @@ public class AbcMusicParser extends Parser {
 		public QuadrupletContext quadruplet() {
 			return getRuleContext(QuadrupletContext.class,0);
 		}
-		public Note_typeContext(ParserRuleContext parent, int invokingState) {
+		public Note_elementContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
-		@Override public int getRuleIndex() { return RULE_note_type; }
+		@Override public int getRuleIndex() { return RULE_note_element; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof AbcMusicListener ) ((AbcMusicListener)listener).enterNote_type(this);
+			if ( listener instanceof AbcMusicListener ) ((AbcMusicListener)listener).enterNote_element(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof AbcMusicListener ) ((AbcMusicListener)listener).exitNote_type(this);
+			if ( listener instanceof AbcMusicListener ) ((AbcMusicListener)listener).exitNote_element(this);
 		}
 	}
 
-	public final Note_typeContext note_type() throws RecognitionException {
-		Note_typeContext _localctx = new Note_typeContext(_ctx, getState());
-		enterRule(_localctx, 28, RULE_note_type);
+	public final Note_elementContext note_element() throws RecognitionException {
+		Note_elementContext _localctx = new Note_elementContext(_ctx, getState());
+		enterRule(_localctx, 28, RULE_note_element);
 		try {
 			setState(133);
 			switch (_input.LA(1)) {
@@ -995,7 +993,7 @@ public class AbcMusicParser extends Parser {
 				rest();
 				}
 				break;
-			case CHORD_OPEN:
+			case LBRAC:
 				enterOuterAlt(_localctx, 3);
 				{
 				setState(129);
@@ -1016,7 +1014,7 @@ public class AbcMusicParser extends Parser {
 				triplet();
 				}
 				break;
-			case QUADRUPLET:
+			case QUAD:
 				enterOuterAlt(_localctx, 6);
 				{
 				setState(132);
@@ -1113,8 +1111,8 @@ public class AbcMusicParser extends Parser {
 	}
 
 	public static class ChordContext extends ParserRuleContext {
-		public TerminalNode CHORD_OPEN() { return getToken(AbcMusicParser.CHORD_OPEN, 0); }
-		public TerminalNode CHORD_CLOSE() { return getToken(AbcMusicParser.CHORD_CLOSE, 0); }
+		public TerminalNode LBRAC() { return getToken(AbcMusicParser.LBRAC, 0); }
+		public TerminalNode RBRAC() { return getToken(AbcMusicParser.RBRAC, 0); }
 		public List<NoteContext> note() {
 			return getRuleContexts(NoteContext.class);
 		}
@@ -1149,7 +1147,7 @@ public class AbcMusicParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(139);
-			match(CHORD_OPEN);
+			match(LBRAC);
 			setState(142); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
@@ -1178,7 +1176,7 @@ public class AbcMusicParser extends Parser {
 				_la = _input.LA(1);
 			} while ( _la==NOTE || _la==REST );
 			setState(146);
-			match(CHORD_CLOSE);
+			match(RBRAC);
 			}
 		}
 		catch (RecognitionException re) {
@@ -1236,7 +1234,7 @@ public class AbcMusicParser extends Parser {
 				note();
 				}
 				break;
-			case CHORD_OPEN:
+			case LBRAC:
 				{
 				setState(150);
 				chord();
@@ -1253,7 +1251,7 @@ public class AbcMusicParser extends Parser {
 				note();
 				}
 				break;
-			case CHORD_OPEN:
+			case LBRAC:
 				{
 				setState(154);
 				chord();
@@ -1319,7 +1317,7 @@ public class AbcMusicParser extends Parser {
 				note();
 				}
 				break;
-			case CHORD_OPEN:
+			case LBRAC:
 				{
 				setState(159);
 				chord();
@@ -1336,7 +1334,7 @@ public class AbcMusicParser extends Parser {
 				note();
 				}
 				break;
-			case CHORD_OPEN:
+			case LBRAC:
 				{
 				setState(163);
 				chord();
@@ -1353,7 +1351,7 @@ public class AbcMusicParser extends Parser {
 				note();
 				}
 				break;
-			case CHORD_OPEN:
+			case LBRAC:
 				{
 				setState(167);
 				chord();
@@ -1376,7 +1374,7 @@ public class AbcMusicParser extends Parser {
 	}
 
 	public static class QuadrupletContext extends ParserRuleContext {
-		public TerminalNode QUADRUPLET() { return getToken(AbcMusicParser.QUADRUPLET, 0); }
+		public TerminalNode QUAD() { return getToken(AbcMusicParser.QUAD, 0); }
 		public List<NoteContext> note() {
 			return getRuleContexts(NoteContext.class);
 		}
@@ -1410,7 +1408,7 @@ public class AbcMusicParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(170);
-			match(QUADRUPLET);
+			match(QUAD);
 			setState(173);
 			switch (_input.LA(1)) {
 			case NOTE:
@@ -1419,7 +1417,7 @@ public class AbcMusicParser extends Parser {
 				note();
 				}
 				break;
-			case CHORD_OPEN:
+			case LBRAC:
 				{
 				setState(172);
 				chord();
@@ -1436,7 +1434,7 @@ public class AbcMusicParser extends Parser {
 				note();
 				}
 				break;
-			case CHORD_OPEN:
+			case LBRAC:
 				{
 				setState(176);
 				chord();
@@ -1453,7 +1451,7 @@ public class AbcMusicParser extends Parser {
 				note();
 				}
 				break;
-			case CHORD_OPEN:
+			case LBRAC:
 				{
 				setState(180);
 				chord();
@@ -1470,7 +1468,7 @@ public class AbcMusicParser extends Parser {
 				note();
 				}
 				break;
-			case CHORD_OPEN:
+			case LBRAC:
 				{
 				setState(184);
 				chord();
@@ -1516,13 +1514,13 @@ public class AbcMusicParser extends Parser {
 		"*\u00ac\3\2\2\2,-\5\4\3\2-\61\5\30\r\2.\60\7\4\2\2/.\3\2\2\2\60\63\3\2"+
 		"\2\2\61/\3\2\2\2\61\62\3\2\2\2\62\64\3\2\2\2\63\61\3\2\2\2\64\65\7\2\2"+
 		"\3\65\3\3\2\2\2\66\67\5\6\4\2\67;\5\b\5\28:\5\n\6\298\3\2\2\2:=\3\2\2"+
-		"\2;9\3\2\2\2;<\3\2\2\2<>\3\2\2\2=;\3\2\2\2>?\5\26\f\2?\5\3\2\2\2@A\7\6"+
-		"\2\2A\7\3\2\2\2BC\7\7\2\2C\t\3\2\2\2DK\5\f\7\2EK\5\16\b\2FK\5\20\t\2G"+
-		"K\5\22\n\2HK\5\24\13\2IK\7\5\2\2JD\3\2\2\2JE\3\2\2\2JF\3\2\2\2JG\3\2\2"+
-		"\2JH\3\2\2\2JI\3\2\2\2K\13\3\2\2\2LM\7\b\2\2M\r\3\2\2\2NO\7\t\2\2O\17"+
-		"\3\2\2\2PQ\7\n\2\2Q\21\3\2\2\2RS\7\13\2\2S\23\3\2\2\2TU\7\f\2\2U\25\3"+
-		"\2\2\2VW\7\r\2\2W\27\3\2\2\2Xb\5\32\16\2Y]\5\24\13\2Z\\\7\4\2\2[Z\3\2"+
-		"\2\2\\_\3\2\2\2][\3\2\2\2]^\3\2\2\2^b\3\2\2\2_]\3\2\2\2`b\7\5\2\2aX\3"+
+		"\2;9\3\2\2\2;<\3\2\2\2<>\3\2\2\2=;\3\2\2\2>?\5\26\f\2?\5\3\2\2\2@A\7\5"+
+		"\2\2A\7\3\2\2\2BC\7\6\2\2C\t\3\2\2\2DK\5\f\7\2EK\5\16\b\2FK\5\20\t\2G"+
+		"K\5\22\n\2HK\5\24\13\2IK\7\r\2\2JD\3\2\2\2JE\3\2\2\2JF\3\2\2\2JG\3\2\2"+
+		"\2JH\3\2\2\2JI\3\2\2\2K\13\3\2\2\2LM\7\7\2\2M\r\3\2\2\2NO\7\b\2\2O\17"+
+		"\3\2\2\2PQ\7\t\2\2Q\21\3\2\2\2RS\7\n\2\2S\23\3\2\2\2TU\7\13\2\2U\25\3"+
+		"\2\2\2VW\7\f\2\2W\27\3\2\2\2Xb\5\32\16\2Y]\5\24\13\2Z\\\7\4\2\2[Z\3\2"+
+		"\2\2\\_\3\2\2\2][\3\2\2\2]^\3\2\2\2^b\3\2\2\2_]\3\2\2\2`b\7\r\2\2aX\3"+
 		"\2\2\2aY\3\2\2\2a`\3\2\2\2bc\3\2\2\2ca\3\2\2\2cd\3\2\2\2d\31\3\2\2\2e"+
 		"g\7\4\2\2fe\3\2\2\2gj\3\2\2\2hf\3\2\2\2hi\3\2\2\2il\3\2\2\2jh\3\2\2\2"+
 		"km\5\34\17\2lk\3\2\2\2mn\3\2\2\2nl\3\2\2\2no\3\2\2\2os\3\2\2\2pr\7\4\2"+

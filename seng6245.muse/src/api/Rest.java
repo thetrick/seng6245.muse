@@ -5,6 +5,11 @@ import sound.Orchestrator;
 
 import org.apache.commons.lang3.math.Fraction;
 
+/**
+ * 
+ * @author Todd G. Hetrick
+ *
+ */
 public class Rest implements IAbcMusicSymbol {
 	
     private final Fraction length;
@@ -49,6 +54,9 @@ public class Rest implements IAbcMusicSymbol {
     }
 
     @Override
+    /**
+     * Return the string representation of Rest Data Type
+     */
     public String toString() {
         return "z" + this.length.toString();
     }
@@ -59,7 +67,12 @@ public class Rest implements IAbcMusicSymbol {
     }
 
 	@Override
+	/**
+	 * Injects the current Rest object (this) into the Orchestrator
+	 * @param orchestrator - Orchestrator Instance used to manage the sequencing of notes
+	 * 						 from the .abc file format to MIDI sounds
+	 */
 	public void addToOrchestrator(Orchestrator orchestrator) {
-		orchestrator.addTime(length);
+		orchestrator.addTime(this.length);
 	}
 }

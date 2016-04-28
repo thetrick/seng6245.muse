@@ -1,4 +1,4 @@
-// Generated from AbcMusic.g4 by ANTLR 4.5.2
+// Generated from AbcMusic.g4 by ANTLR 4.5.3
 
 package grammar;
 
@@ -18,25 +18,25 @@ public class AbcMusicBaseListener implements AbcMusicListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterComposition(AbcMusicParser.CompositionContext ctx) { }
+	@Override public void enterAbc_composition(AbcMusicParser.Abc_compositionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitComposition(AbcMusicParser.CompositionContext ctx) { }
+	@Override public void exitAbc_composition(AbcMusicParser.Abc_compositionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterMusic_header(AbcMusicParser.Music_headerContext ctx) { }
+	@Override public void enterAbc_header(AbcMusicParser.Abc_headerContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitMusic_header(AbcMusicParser.Music_headerContext ctx) { }
+	@Override public void exitAbc_header(AbcMusicParser.Abc_headerContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -126,37 +126,37 @@ public class AbcMusicBaseListener implements AbcMusicListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterHeader_voice(AbcMusicParser.Header_voiceContext ctx) { }
+	@Override public void enterField_voice(AbcMusicParser.Field_voiceContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitHeader_voice(AbcMusicParser.Header_voiceContext ctx) { }
+	@Override public void exitField_voice(AbcMusicParser.Field_voiceContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterHeader_key(AbcMusicParser.Header_keyContext ctx) { }
+	@Override public void enterField_key(AbcMusicParser.Field_keyContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitHeader_key(AbcMusicParser.Header_keyContext ctx) { }
+	@Override public void exitField_key(AbcMusicParser.Field_keyContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterMusic_body(AbcMusicParser.Music_bodyContext ctx) { }
+	@Override public void enterAbc_music(AbcMusicParser.Abc_musicContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitMusic_body(AbcMusicParser.Music_bodyContext ctx) { }
+	@Override public void exitAbc_music(AbcMusicParser.Abc_musicContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -174,25 +174,25 @@ public class AbcMusicBaseListener implements AbcMusicListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterBar(AbcMusicParser.BarContext ctx) { }
+	@Override public void enterMeasure(AbcMusicParser.MeasureContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitBar(AbcMusicParser.BarContext ctx) { }
+	@Override public void exitMeasure(AbcMusicParser.MeasureContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterNote_type(AbcMusicParser.Note_typeContext ctx) { }
+	@Override public void enterNote_element(AbcMusicParser.Note_elementContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitNote_type(AbcMusicParser.Note_typeContext ctx) { }
+	@Override public void exitNote_element(AbcMusicParser.Note_elementContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
